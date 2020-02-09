@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B7589F4A-6F08-4790-93F3-14BD73E08392}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCI.SLAPS.Server", "server\BCI.SLAPS.Server.csproj", "{980C1669-40DF-4B01-A5FA-C9C609081479}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{980C1669-40DF-4B01-A5FA-C9C609081479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980C1669-40DF-4B01-A5FA-C9C609081479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980C1669-40DF-4B01-A5FA-C9C609081479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980C1669-40DF-4B01-A5FA-C9C609081479}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58629EEE-4E02-45DD-BFA9-60E1FC4C056C}
+	EndGlobalSection
+EndGlobal
