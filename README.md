@@ -1,2 +1,1 @@
-# slaps
-ShinyLAN Advanced Projector System
+# ShinyLAN Advanced Projector System (SLAPS)
