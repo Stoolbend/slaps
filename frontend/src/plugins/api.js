@@ -30,9 +30,9 @@ export default {
       async getDisplaySettings(id = null, { token }) {
         let uri = "";
         if (isNullOrWhitespace(id))
-          uri = encodeURI(apiHost + "/Settings/Display");
+          uri = encodeURI(apiHost + "/Displays/Settings");
         else
-          uri = encodeURI(apiHost + "/Settings/Display/" + id);
+          uri = encodeURI(apiHost + "/Displays/Settings/" + id);
         let options = cloneDeep(defaultOptions);
         options = handleToken(options, token);
         try {
