@@ -38,7 +38,7 @@ const actions = {
       return false;
     }
     let result = request.result;
-    ctx.commit("settings", result);
+    ctx.commit("settings", result.data);
     return true;
   },
   async getSlideSet(ctx, id) {
@@ -48,7 +48,7 @@ const actions = {
       return false;
     }
     let result = request.result;
-    ctx.commit("slides", result);
+    ctx.commit("slides", result.data);
     return true;
   }
 };

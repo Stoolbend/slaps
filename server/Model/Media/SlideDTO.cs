@@ -7,7 +7,7 @@ namespace BCI.SLAPS.Server.Model.Media
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public DateTime LastUpdated { get; set; }
+        public DateTimeOffset LastUpdated { get; set; }
         public string ContentHash { get; set; }
     }
 

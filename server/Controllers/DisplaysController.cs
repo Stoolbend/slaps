@@ -2,6 +2,8 @@
 using BCI.SLAPS.Server.Model.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,11 +21,22 @@ namespace BCI.SLAPS.Server.Controllers
             _mapper = mapper;
         }
 
+        #region Registration
+        [HttpGet("Register"), AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<object>>> Register(CancellationToken ct)
+        {
+            return Ok(new List<object>());
+        }
+        #endregion
+
+        #region Slide Sets & Slides
+        #endregion
+
         #region Settings
         [HttpGet("Settings"), AllowAnonymous]
-        public async Task<ActionResult> GetSettings(CancellationToken ct)
+        public async Task<ActionResult<IEnumerable<object>>> GetSettings(CancellationToken ct)
         {
-            return NoContent();
+            return Ok(new List<object>());
         }
         #endregion
     }

@@ -12,7 +12,7 @@ namespace BCI.SLAPS.Server.Model.Chat
         /// <summary>
         /// Timestamp the post was created
         /// </summary>
-        public DateTime Timestamp { get; set; }
+        public DateTimeOffset Timestamp { get; set; }
 
         /// <summary>
         /// Contains the user object if the post was submitted by an authenticated User.

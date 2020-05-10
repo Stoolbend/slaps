@@ -24,7 +24,7 @@ namespace BCI.SLAPS.Server.Model.Media
         /// <summary>
         /// Automatically updated value displaying the last time the content was updated.
         /// </summary>
-        public DateTime LastUpdated { get; set; }
+        public DateTimeOffset LastUpdated { get; set; }
 
         /// <summary>
         /// HTML content to be displayed by the client. Should be encoded using UTF8.
