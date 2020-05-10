@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BCI.SLAPS.Server.Model.Chat;
+using BCI.SLAPS.Server.Model.Displays;
 using BCI.SLAPS.Server.Model.Media;
 using BCI.SLAPS.Server.Model.User;
 
@@ -32,6 +33,10 @@ namespace BCI.SLAPS.Server.Services
             #region Posts
             CreateMap<Post, PostDTO>();
             CreateMap<PostDTOBase, Post>();
+            #endregion
+
+            #region Displays
+            CreateMap<Display, DisplayDTO>();
             #endregion
         }
     }

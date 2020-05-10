@@ -18,6 +18,8 @@ Vue.use(BootstrapVueIcons)
 // Custom plugins
 import Api from "./plugins/api";
 Vue.use(Api);
+import DisplayApi from "./plugins/displayApi";
+Vue.use(DisplayApi);
 import Utils from "./plugins/utils";
 Vue.use(Utils);
 

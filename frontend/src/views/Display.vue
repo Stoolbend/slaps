@@ -21,8 +21,7 @@ export default {
       error: {
         state: false,
         message: "An unhandled error has occurred."
-      },
-      displayId: null
+      }
     };
   },
   computed: {
@@ -39,9 +38,18 @@ export default {
     if (!this.$utils.isNullOrWhitespace(this.$route.params.id))
       this.displayId = this.$route.params.id;
 
+    // Load id / register with server
+    this.loading.message = "Registering with server...";
+    if (!await this.$store.dispatch("display/getId"))
+    {
+      this.error.state = true;
+      this.error.message = "Error registering with server. Please make sure the server is running and accessible.";
+      return;
+    }
+
     // Get display settings from API
     this.loading.message = "Getting display settings...";
-    if (!await this.$store.dispatch("display/getSettings", this.displayId))
+    if (!await this.$store.dispatch("display/getSettings"))
     {
       this.error.state = true;
       this.error.message = "Error getting display settings. Please make sure the server is running and accessible.";
@@ -50,9 +58,23 @@ export default {
 
     // Get slide set from API
     this.loading.message = "Getting slides...";
+    if (!await this.$store.dispatch("display/getSlideSet"))
+    {
+      this.error.state = true;
+      this.error.message = "Error getting slide set. Please make sure the server is running and accessible.";
+      return;
+    }
 
     // Pre-load content for slides
     this.loading.message = "Pre-loading slide content...";
+    if (!await this.$store.dispatch("display/getSlidesContent"))
+    {
+      this.error.state = true;
+      this.error.message = "Error getting slide content. Please make sure the server is running and accessible.";
+      return;
+    }
+
+    this.loading.message = "Ready to go!";
   }
 };
 </script>

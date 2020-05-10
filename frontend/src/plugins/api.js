@@ -27,21 +27,6 @@ export default {
       async renewToken(token) {
         return !(token);
       },
-      async getDisplaySettings(id = null, { token }) {
-        let uri = "";
-        if (isNullOrWhitespace(id))
-          uri = encodeURI(apiHost + "/Displays/Settings");
-        else
-          uri = encodeURI(apiHost + "/Displays/Settings/" + id);
-        let options = cloneDeep(defaultOptions);
-        options = handleToken(options, token);
-        try {
-          let result = await axios.get(uri, options);
-          return { result, isError: false };
-        } catch (error) {
-          return { error, isError: true };
-        }
-      },
       async getSlideSets({ token }) {
         let uri = encodeURI(apiHost + "/SlideSets");
         let options = cloneDeep(defaultOptions);
@@ -56,18 +41,6 @@ export default {
       async getSlideSet(id, { token }) {
         if (isNullOrWhitespace(id)) throw new Error("getSlideSet - Missing parameter: id");
         let uri = encodeURI(apiHost + "/SlideSets/" + id);
-        let options = cloneDeep(defaultOptions);
-        options = handleToken(options, token);
-        try {
-          let result = await axios.get(uri, options);
-          return { result, isError: false };
-        } catch (error) {
-          return { error, isError: true };
-        }
-      },
-      async getSlideContent(id, { token }) {
-        if (isNullOrWhitespace(id)) throw new Error("getSlideContent - Missing parameter: id");
-        let uri = encodeURI(apiHost + "/Slides" + id + "/Content");
         let options = cloneDeep(defaultOptions);
         options = handleToken(options, token);
         try {

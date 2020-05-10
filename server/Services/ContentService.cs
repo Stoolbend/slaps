@@ -159,7 +159,8 @@ namespace BCI.SLAPS.Server.Services
         private async Task<IEnumerable<Slide>> RefreshSlideCacheAsync(CancellationToken ct = default)
         {
             _cache.Remove(CACHE_KEY_SLIDES);
-            var slides = await _db.Slides.ToListAsync(ct);
+            var slides = await _db.Slides.AsNoTracking()
+                                         .ToListAsync(ct);
             _cache.Set(CACHE_KEY_SLIDES, slides);
             return slides;
         }
@@ -168,6 +169,7 @@ namespace BCI.SLAPS.Server.Services
         {
             _cache.Remove(CACHE_KEY_SLIDESETS);
             var slideSets = await _db.SlideSets.Include(ss => ss.Slides)
+                                               .AsNoTracking()
                                                .ToListAsync(ct);
             _cache.Set(CACHE_KEY_SLIDESETS, slideSets);
             return slideSets;

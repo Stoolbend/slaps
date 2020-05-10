@@ -9,7 +9,7 @@ namespace BCI.SLAPS.Server.Model.Displays
         public DateTimeOffset Created { get; set; }
 
         #region SlideSet assignment
-        public Guid SlideSetId { get; set; }
+        public Guid? SlideSetId { get; set; }
         public virtual SlideSet SlideSet { get; set; }
         #endregion
     }

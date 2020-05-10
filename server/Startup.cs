@@ -41,6 +41,7 @@ namespace BCI.SLAPS.Server
 
             // Configure local services
             services.AddScoped<IContentService, ContentService>();
+            services.AddScoped<IDisplayService, DisplayService>();
             services.AddScoped<ISettingsService, SettingsService>();
             services.AddScoped<IUserService, UserService>();
 
