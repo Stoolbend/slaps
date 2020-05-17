@@ -34,7 +34,16 @@ namespace BCI.SLAPS.Server.Services
                 .Property(s => s.Key)
                 .HasColumnType("TEXT COLLATE NOCASE");
 
-            // Set custom primary keys
+            // Set default values
+            model.Entity<Slide>()
+                .Property(s => s.Order)
+                .ValueGeneratedNever()
+                .HasDefaultValue(999);
+
+            model.Entity<Slide>()
+                .Property(s => s.DisplaySeconds)
+                .ValueGeneratedNever()
+                .HasDefaultValue(20);
             #endregion
 
             #region Settings seeding

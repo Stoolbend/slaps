@@ -92,6 +92,14 @@ namespace BCI.SLAPS.Server.Controllers
             var obj = _mapper.Map<Slide>(dto);
             obj.Id = Guid.NewGuid();
             obj.SlideSetId = id;
+
+            // For lack of knowing how else to do this (with AutoMapper preferably)...
+            if (obj.Order < 1)
+                obj.Order = 999;
+            if (obj.DisplaySeconds < 1)
+                obj.DisplaySeconds = 20;
+            // I hope one day I can find a better way for this :(
+
             obj = await _contentSvc.AddSlideAsync(obj, ct);
             return CreatedAtAction("GetSlide", "Slides", new { id = obj.Id }, _mapper.Map<SlideAdminDTO>(obj));
         }

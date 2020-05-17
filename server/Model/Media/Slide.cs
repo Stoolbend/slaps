@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 using System.Text;
@@ -71,5 +70,10 @@ namespace BCI.SLAPS.Server.Model.Media
         /// Sets the order of this slide inside it's Slide Set.
         /// </summary>
         public int Order { get; set; }
+
+        /// <summary>
+        /// The time that this slide should be shown on the display (in seconds).
+        /// </summary>
+        public int DisplaySeconds { get; set; }
     }
 }

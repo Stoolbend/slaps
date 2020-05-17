@@ -50,7 +50,7 @@ namespace BCI.SLAPS.Server
 
             // Configure JWT authentication
             // - Get required settings for token validation
-            var _settings = sp.GetService<ISettingsService>();
+            var _settings = sp.GetService<ISettingsService>(); //TODO May be a better way of doing this - as generates warning about duplicating singleton instances.
 
             // - Configure token validation
             services.AddAuthentication(options =>

@@ -64,6 +64,10 @@ namespace BCI.SLAPS.Server.Controllers
             if (obj == null) return NotFound();
             obj.Title = dto.Title;
             obj.Content = dto.Content;
+            if (dto.Order.HasValue)
+                obj.Order = dto.Order.Value;
+            if (dto.DisplaySeconds.HasValue)
+                obj.DisplaySeconds = dto.DisplaySeconds.Value;
             await _contentSvc.UpdateSlideAsync(obj, ct);
             return Ok(_mapper.Map<SlideAdminDTO>(obj));
         }
