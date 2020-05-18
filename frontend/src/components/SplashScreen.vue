@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-center align-items-center">
-    <div class="splash-screen d-flex flex-column justify-content-center">
+    <div class="splash-screen rounded bg-light p-3 d-flex flex-column justify-content-center">
       <b-img class="logo" src="../assets/slaps_logo.png" fluid />
       <div
         v-if="error" 

@@ -1,17 +1,25 @@
 <template>
   <div class="display-container">
-    <SplashScreen 
-      class="slide"
-      :error="error.state">
-      {{message}}
-    </SplashScreen>
+    <transition name="fade">
+      <template v-if="loading.state || error.state">
+        <SplashScreen 
+          class="slide"
+          :error="error.state">
+          {{message}}
+        </SplashScreen>
+      </template>
+      <template v-else>
+        <Slideshow />
+      </template>
+    </transition>
   </div>
 </template>
 <script>
+import Slideshow from "../components/Slideshow";
 import SplashScreen from "../components/SplashScreen";
 export default {
   name: "Display",
-  components: { SplashScreen },
+  components: { Slideshow, SplashScreen },
   data() {
     return {
       loading: {
@@ -74,16 +82,26 @@ export default {
       return;
     }
 
-    this.loading.message = "Ready to go!";
+    this.loading.state = false;
+    this.loading.message = "Startup complete!";
   }
 };
 </script>
 <style scoped>
 .display-container {
   height: 100vh;
+  background-color: #000;
 }
 .slide {
   width: 100%;
   height: 100%;
+}
+
+/* Transitions */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
